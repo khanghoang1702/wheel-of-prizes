@@ -59,7 +59,10 @@ function App() {
   return (
     <>
       <div style={{ position: 'absolute', right: '0', top: '0' }}>
-        <button style={{ width: '30px', height: '30px', textAlign: 'center' }} onClick={() => setShowModal(true)}>
+        <button
+          style={{ width: '30px', height: '30px', textAlign: 'center', background: 'transparent' }}
+          onClick={() => setShowModal(true)}
+        >
           ⚙️
         </button>
       </div>

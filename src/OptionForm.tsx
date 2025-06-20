@@ -36,16 +36,16 @@ const OptionForm: React.FC<Props> = ({ options, setOptions }) => {
     <div style={{ marginTop: 20 }}>
       <h3>🎛️ Manage Options</h3>
       <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
-        <input placeholder="Name" value={newOption.name} onChange={(e) => handleChange('name', e.target.value)} />
+        <input placeholder="Tên" value={newOption.name} onChange={(e) => handleChange('name', e.target.value)} />
         <input
-          placeholder="Weight"
+          placeholder="Tỉ lệ"
           type="number"
           value={newOption.weight}
           onChange={(e) => handleChange('weight', +e.target.value)}
           style={{ width: 70 }}
         />
         <input
-          placeholder="Description"
+          placeholder="Mô tả"
           value={newOption.description}
           onChange={(e) => handleChange('description', e.target.value)}
         />
@@ -55,7 +55,7 @@ const OptionForm: React.FC<Props> = ({ options, setOptions }) => {
       <ul>
         {options.map((opt, idx) => (
           <li key={idx}>
-            <b>{opt.name}</b> (weight: {opt.weight}) — {opt.description}
+            <b>{opt.name}</b> (Tỉ lệ: {opt.weight}) — {opt.description}
             <button onClick={() => handleDelete(idx)} style={{ marginLeft: 8 }}>
               ❌
             </button>
