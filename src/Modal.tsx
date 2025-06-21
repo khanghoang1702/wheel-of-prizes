@@ -35,7 +35,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   return (
     <div style={modalStyle} onClick={onClose}>
       <div style={contentStyle} onClick={(e) => e.stopPropagation()}>
-        <button onClick={onClose} style={{ float: 'right', marginBottom: 10 }}>
+        <button
+          onClick={onClose}
+          style={{ float: 'right', background: 'transparent', marginBottom: '20px', display: 'inline-block' }}
+        >
           ✖️
         </button>
         {children}

@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(14, 13, 13, 0.87);
-  background-color: #fff;
+  background-color: #c9e0ec;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,6 +20,11 @@ a {
 }
 a:hover {
   color: #535bf2;
+}
+
+input {
+  background: #d6d3d3;
+  color: #1a1a1a;
 }
 
 body {
@@ -47,12 +52,9 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: none;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
 
 @media (prefers-color-scheme: light) {
   :root {
