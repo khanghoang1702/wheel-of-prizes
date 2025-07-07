@@ -1,5 +1,5 @@
 body {
-  background: url('./2.svg');
+  background: url('../public/2.svg');
   background-position: center;
   background-size: cover;
   overflow: hidden;
