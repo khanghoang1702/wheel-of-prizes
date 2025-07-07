@@ -1,42 +1,58 @@
+body {
+  background: url('./2.svg');
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
 #root {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  max-width: 1000px;
+  height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.main {
+  margin: auto;
+  position: relative;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.logo-2 {
+  scale: 7;
+}
+
+.outer-wheel {
+  margin-top: 20px;
+  width: 430px;
+  height: 430px;
+  border: 5px solid;
+  border-radius: 50%;
+  border-color: transparent;
+  background: #833AB4;
+  background: linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
+
+.cat-section {
+  position: absolute;
+  right: -120px;
+  bottom: 225px;
+  height: 120px;
+}
+
+.btn {
+  width: 180px;
+  height: 150px;
+  background-color: transparent;
+}
+
+.cat-section img {
+  width: 200px;
+}
+
+@media (max-width: 480px) {
+  .logo-2 {
+    scale: 3;
   }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}

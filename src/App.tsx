@@ -28,7 +28,6 @@ function App() {
   const [options, setOptions] = useState<WheelOption[]>([]);
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
-  const [result, setResult] = useState<WheelOption | null>(null);
   const [showModal, setShowModal] = useState(false);
 
   const handleSpinClick = () => {
@@ -39,7 +38,6 @@ function App() {
 
   const handleSpinEnd = () => {
     setMustSpin(false);
-    setResult(options[prizeNumber]);
   };
 
   const wheelData = useMemo(() => {
@@ -70,54 +68,77 @@ function App() {
           ⚙️
         </button>
       </div>
-      <div style={{ width: '100%', height: '100%' }}>
-        <div style={{ display: 'flex', justifyContent: 'left', marginBottom: '50px' }}>
-          <img src="/logo.jpeg" alt="logo" width={150} />
+      <div className="main">
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            height: '120px',
+            padding: '20px 0',
+          }}
+        >
+          <img src="/1.svg" alt="logo" width={100} style={{ scale: 3 }} />
         </div>
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            height: '120px',
+            padding: '20px 0',
+          }}
+        >
+          <img src="/5.svg" alt="logo" className="logo-2" />
+        </div>
+        <div
+          className="outer-wheel"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            alignItems: 'center',
+            marginBottom: '50px',
+          }}
+        >
           <Wheel
             mustStartSpinning={mustSpin}
             prizeNumber={prizeNumber}
             data={wheelData}
-            textColors={['#fff']}
+            textColors={['#292828']}
             fontSize={22}
-            backgroundColors={[
-              '#0277bd',
-              '#df3428',
-              '#e7ad21',
-              '#00ac4d',
-              '#3e50b3',
-              '#bdc7d6',
-              '#666056',
-              '#fbf1d4',
-              '#ff8db5',
-              '#d6d3c7',
-            ]}
+            outerBorderWidth={7}
+            outerBorderColor="#43e8dc"
+            innerBorderWidth={10}
+            innerBorderColor="#008377"
+            pointerProps={{
+              style: {
+                transform: 'rotate(25deg)',
+                width: '20%',
+                right: '25px',
+                top: '25px',
+              },
+              src: './pointer.png',
+            }}
+            perpendicularText={true}
+            backgroundColors={['#43e8dc', '#008377', '#e7e7e2']}
             onStopSpinning={handleSpinEnd}
           />
-          <button
-            style={{ marginTop: '50px', width: '180px', height: '85px', fontSize: '20px' }}
-            disabled={mustSpin}
-            onClick={handleSpinClick}
-          >
-            {mustSpin ? 'Đang quay...' : 'Quay'}
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'left', marginTop: '50px' }}>
+          <button className="btn" disabled={mustSpin} onClick={handleSpinClick}>
+            <img
+              src="/3.svg"
+              alt="logo"
+              style={{ width: 450, height: 100, paddingRight: 70, paddingBottom: 10, scale: 5 }}
+            />
           </button>
+        </div>
+        <div className="cat-section">
+          <img src="/6.svg" alt="logo" />
         </div>
       </div>
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <OptionForm options={options} setOptions={setOptions} />
-      </Modal>
-      <Modal isOpen={!!result} onClose={() => setResult(null)}>
-        <div style={{ height: '300px' }}>
-          {result && (
-            <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-              <h2>🎉 Xe Điện Phi Khánh 🎉</h2>
-              <h2>🎉 xin chúc mừng bạn đã quay trúng 🎉</h2>
-              <h3 style={{ color: '#0277bd', fontSize: '30px' }}>{result.name}</h3>
-              <p>{result.description}</p>
-            </div>
-          )}
-        </div>
       </Modal>
     </>
   );
